@@ -41,3 +41,26 @@
 //         console.log("Esse é o aluno : " + aluno[i])
 // }
 
+
+// //Declarando um array de objetos de alunos:
+// let alunos = [
+//     {nome:"Joao" , idade: 18},
+//     {nome:"Maria", idade: 23},
+//     {nome:"Jose",  idade: 47}
+// ];
+
+// //Imprimir o primeiro objeto do array de alunos:
+// console.log('Primeiro Objeto');
+// console.log(alunos[0].nome,alunos[0]["idade"]);
+// console.log('Segundo Objeto');
+// console.log(alunos[1].nome,alunos[1]["idade"]);
+
+// console.log("\n");
+
+// let propriedade = "idade";
+
+// //Imprimir o array de objetos com forEach:
+// alunos.forEach(aluno=>{
+//     console.log(`Nome do aluno ${aluno.nome}`);
+//     console.log(`Idade do aluno ${aluno[propriedade]}`);
+// });
