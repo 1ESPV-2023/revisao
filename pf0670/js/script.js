@@ -64,3 +64,53 @@
 //     console.log(`Nome do aluno ${aluno.nome}`);
 //     console.log(`Idade do aluno ${aluno[propriedade]}`);
 // });
+
+//Declarar um array com 5 nomes de alunos:
+let alunos = ["João","Ana","Carlos","Mateus","Pedro"];
+console.log('\nArray original');
+console.log(alunos);
+
+//Inserindo um elemento ao final do array:
+alunos.push("Luis");
+console.log("\n");
+console.log(alunos);
+
+//Removendo um elemento ao final do array:
+alunos.pop();
+console.log("\n");
+console.log(alunos);
+
+//Inserindo um elemento no início do array:
+alunos.unshift("Luis");
+console.log("\n");
+console.log(alunos);
+
+//Remove um elemento do início do array:
+alunos.shift("Luis");
+console.log("\n");
+console.log(alunos);
+
+//Colocando os elementos em ordem alfabética:
+alunos.sort();
+console.log("\n");
+console.log(alunos);
+
+//Revertendo a ordem dos elementos:
+alunos.reverse();
+console.log("\n");
+console.log(alunos);
+
+//Alterando os elementos com o método splice:
+alunos.splice(3,2);
+console.log("\n");
+console.log(alunos);
+
+// //Alterando e excluindo elementos com o método splice:
+// alunos.splice(1,2,"Jorge");
+// console.log("\n");
+// console.log(alunos);
+
+// //Excluindo elementos com o método splice:
+// alunos.splice(2,1);
+// console.log("\n");
+// console.log(alunos);
