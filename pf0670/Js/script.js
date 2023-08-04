@@ -42,26 +42,78 @@
 
 
 
+// //Declarando um array de objetos de alunos:
+// let alunos = [
+//     {nome:"Joao" , idade: 18},
+//     {nome:"Maria", idade: 23},
+//     {nome:"Jose",  idade: 47}
+// ];
 
-//Declarando um array de objetos de alunos:
-let alunos = [
-    {nome:"Joao" , idade: 18},
-    {nome:"Maria", idade: 23},
-    {nome:"Jose",  idade: 47}
-];
+// //Imprimir o primeiro objeto do array de alunos:
+// console.log('Primeiro Objeto');
+// console.log(alunos[0].nome,alunos[0]["idade"]);
+// console.log('Segundo Objeto');
+// console.log(alunos[1].nome,alunos[1]["idade"]);
 
-//Imprimir o primeiro objeto do array de alunos:
-console.log('Primeiro Objeto');
-console.log(alunos[0].nome,alunos[0]["idade"]);
-console.log('Segundo Objeto');
-console.log(alunos[1].nome,alunos[1]["idade"]);
+// console.log("\n");
 
+// let propriedade = "idade";
+
+// //Imprimir o array de objetos com forEach:
+// alunos.forEach( (aluno )=>{
+//     console.log(`Nome do aluno ${aluno.nome}`);
+//     console.log(`Idade do aluno ${aluno[propriedade]}`);
+// });
+
+
+
+
+//Declarar um array com 5 nomes de alunos:
+let alunos = ["João","Ana","Carlos","Mateus","Pedro"];
+console.log('\nArray original');
+console.log(alunos);
+
+//Inserindo um elemento ao final do array:
+alunos.push("Luis");
 console.log("\n");
+console.log(alunos);
 
-let propriedade = "idade";
+//Removendo um elemento ao final do array:
+alunos.pop();
+console.log("\n");
+console.log(alunos);
 
-//Imprimir o array de objetos com forEach:
-alunos.forEach( (aluno )=>{
-    console.log(`Nome do aluno ${aluno.nome}`);
-    console.log(`Idade do aluno ${aluno[propriedade]}`);
-});
+//Inserindo um elemento no início do array:
+alunos.unshift("Luis");
+console.log("\n");
+console.log(alunos);
+
+//Remove um elemento do início do array:
+alunos.shift("Luis");
+console.log("\n");
+console.log(alunos);
+
+//Colocando os elementos em ordem alfabética:
+alunos.sort();
+console.log("\n");
+console.log(alunos);
+
+//Revertendo a ordem dos elementos:
+alunos.reverse();
+console.log("\n");
+console.log(alunos);
+
+//Alterando os elementos com o método splice:
+alunos.splice(1,2,"Penelope","Joana");
+console.log("\n");
+console.log(alunos);
+
+//Alterando e excluindo elementos com o método splice:
+alunos.splice(1,2,"Jorge");
+console.log("\n");
+console.log(alunos);
+
+//Excluindo elementos com o método splice:
+alunos.splice(2,1);
+console.log("\n");
+console.log(alunos);
