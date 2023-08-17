@@ -6,15 +6,24 @@ const botaoAddTarefa = document.querySelector('#btnAddTarefa');
 botaoAddTarefa.addEventListener("click",(evt)=>{
     evt.preventDefault();
 
-    const inputTarefa = document.querySelector('#idTarefa');
+    //Recuperando todos os inputs das tarefas, um por um com getElementById()
+    const inputNomeTarefa = document.getElementById("idNmTarefa");
+    const inputDescricaoTarefa = document.getElementById("idDescTarefa");
+    const inputDataTarefa = document.getElementById("idDtTarefa");
 
-    listaTarefasArray.push(inputTarefa.value);
+    // console.log(inputNomeTarefa.value);
+    // console.log(inputDescricaoTarefa.value);
+    // console.log(inputDataTarefa.value);
+
+    // //Recuperando todos os inputs das tarefas de uma única vez com querySelectorAll();
+    // const todosInputsDeTarefas = [...document.querySelectorAll("input")];
+    // // const novoArrayDeInputs = [...todosInputsDeTarefas];
+    // console.log(todosInputsDeTarefas);
+    
 
     const listaTarefasUL = document.querySelector('#lista-tarefas');
 
     let li = document.createElement('li');
-
-    li.textContent = inputTarefa.value;
 
     listaTarefasUL.appendChild(li);
 
@@ -27,14 +36,9 @@ botaoAddTarefa.addEventListener("click",(evt)=>{
     botaoExcluir.addEventListener("click",(evt)=>{
         evt.preventDefault();
         let conteudoDaLi = evt.target.parentNode.textContent.split(" x ");
-        let indiceDaTarefa = listaTarefasArray.indexOf(conteudoDaLi[0]);
-        listaTarefasArray.splice(indiceDaTarefa,1);
         //Remove o elemento pai do botão clicado do HTML
         evt.target.parentNode.remove()
-        console.log(listaTarefasArray);
     
     });
 
-    console.log(listaTarefasArray);
-    inputTarefa.value = "";
 });
