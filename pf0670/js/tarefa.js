@@ -20,6 +20,41 @@ botaoAddTarefa.addEventListener("click",(evt)=>{
     // // const novoArrayDeInputs = [...todosInputsDeTarefas];
     // console.log(todosInputsDeTarefas);
     
+    //Criando um Objeto para guardar os dados recuperados dos inputs
+
+    // //Declarando o objeto
+    // const tarefaObj = {
+    //     nome: "",
+    //     descricao:"",
+    //     data:""
+    // }
+
+        //Declarando o objeto e já receebendo os dados dos inputs
+        const tarefaObj = {
+            nome: inputNomeTarefa.value,
+            descricao:inputDescricaoTarefa.value,
+            data:inputDataTarefa.value
+        }
+
+        //Inserindo os objetos na Lista
+        listaTarefasArray.push(tarefaObj);
+
+        // //Gerando uma lista de nomes de Tarefas com MAP
+        // let listaNomesTarefas = listaTarefasArray.map((chapeu,index) => {
+        //      if(index %2 == 0){
+        //         return chapeu.nome
+        //     }
+        // }).filter(chapeu =>( chapeu != undefined));
+
+        let listaNomesTarefas = listaTarefasArray.filter((chapeu,index) =>{
+            return index %2 == 0
+        });
+
+        console.log(listaNomesTarefas);
+
+
+
+
 
     const listaTarefasUL = document.querySelector('#lista-tarefas');
 
@@ -42,3 +77,38 @@ botaoAddTarefa.addEventListener("click",(evt)=>{
     });
 
 });
+
+
+//Declarando um array de Objetos de Alunos, com notas e faltas:
+let alunos = [
+    {"nome":"João","nota":8,"faltas":1},
+    {"nome":"Maria","nota":7,"faltas":3} ,
+    {"nome":"Pedro","nota":9,"faltas":4 },
+    {"nome":"Ana","nota":6,"faltas":5},
+    {"nome":"Carlos","nota":10,"faltas":0},
+    {"nome":"Fernando","nota":5,"faltas":3},
+    {"nome":"Júlio","nota":4,"faltas":0}
+    ];
+    
+    let notasDosAlunos = alunos.map(aluno => {
+        if(aluno.nota >= 6){
+            return aluno.nota;
+        }
+    }).filter(aluno => aluno != undefined);
+
+    console.log(notasDosAlunos);
+
+    let mediaFinal = 0;
+
+    notasDosAlunos.forEach((notas,index) =>{
+        notas =+ notas;
+        if((notasDosAlunos.length - 1) == index){
+            mediaFinal = (notas/alunos.length).toFixed(2) + ' pontos';
+            console.log(mediaFinal);
+        }
+    });
+
+   let novaMedia = notasDosAlunos.reduce((acumulado, atual)=> acumulado + atual);
+   console.log(novaMedia/(notasDosAlunos.length-1));
+    
+
