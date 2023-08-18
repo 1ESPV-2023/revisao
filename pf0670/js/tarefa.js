@@ -99,11 +99,12 @@ let alunos = [
     console.log(notasDosAlunos);
 
     let mediaFinal = 0;
-
+    let newNotas = 0;
     notasDosAlunos.forEach((notas,index) =>{
-        notas =+ notas;
-        if((notasDosAlunos.length - 1) == index){
-            mediaFinal = (notas/alunos.length).toFixed(2) + ' pontos';
+        newNotas = newNotas + notas;
+        console.log(newNotas);
+        if((notasDosAlunos.length -1) == index){
+            mediaFinal = (notas/notasDosAlunos.length-1) + ' pontos';
             console.log(mediaFinal);
         }
     });
