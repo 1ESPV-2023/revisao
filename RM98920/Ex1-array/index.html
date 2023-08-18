@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coded by PF0670</title>
-    <script src="../js/tarefa.js" defer></script>
+    <script src="../js/script.js" defer></script>
 </head>
 <body>
 
@@ -15,8 +15,16 @@
             <fieldset>
                 <legend>Cadastro de Novas Tarefas</legend>
                 <div>
-                    <label for="">Nova Tarefa</label>
-                    <input type="text" name="tarefa" id="idTarefa" placeholder="Digite o nome da Tarefa.">
+                    <label for="idNMTarefa">Nome Tarefa</label>
+                    <input type="text" name="nmtarefa" id="idNMTarefa" placeholder="Digite o nome da Tarefa">
+                </div>
+                <div>
+                    <label for="idDescTarefa">Nova Tarefa</label>
+                    <input type="text" name="Desctarefa" id="idDescTarefa" placeholder="Descrição da tarefa">
+                </div>
+                <div>
+                    <label for="idDtTarefa">Data da Tarefa</label>
+                    <input type="date" name="Dttarefa" id="idDtTarefa" placeholder="Data da tarefa">
                 </div>
                 <div>
                     <button type="submit" id="btnAddTarefa">Adicionar</button>
