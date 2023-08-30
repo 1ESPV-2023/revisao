@@ -1,114 +1,79 @@
-
 let listaTarefasArray = [];
 
 const botaoAddTarefa = document.querySelector('#btnAddTarefa');
+const botaoExcluirTarefa = document.querySelector('#btnExcluirTarefa');
+
+
 
 botaoAddTarefa.addEventListener("click",(evt)=>{
     evt.preventDefault();
 
-    //Recuperando todos os inputs das tarefas, um por um com getElementById()
-    const inputNomeTarefa = document.getElementById("idNmTarefa");
+    const inputNomeTarefa = document.getElementById("idNMTarefa");
     const inputDescricaoTarefa = document.getElementById("idDescTarefa");
+    const inputDepartamentoTarefa = document.getElementById("idDpTarefa");
+    const inputimportanciaTarefa = document.getElementById("idImporTarefa");
     const inputDataTarefa = document.getElementById("idDtTarefa");
-
-    // console.log(inputNomeTarefa.value);
-    // console.log(inputDescricaoTarefa.value);
-    // console.log(inputDataTarefa.value);
-
-    // //Recuperando todos os inputs das tarefas de uma única vez com querySelectorAll();
-    // const todosInputsDeTarefas = [...document.querySelectorAll("input")];
-    // // const novoArrayDeInputs = [...todosInputsDeTarefas];
-    // console.log(todosInputsDeTarefas);
     
-    //Criando um Objeto para guardar os dados recuperados dos inputs
 
-    // //Declarando o objeto
-    // const tarefaObj = {
-    //     nome: "",
-    //     descricao:"",
-    //     data:""
-    // }
+    const tarefaObj = {
+        nome: inputNomeTarefa.value,
+        descricao:inputDescricaoTarefa.value,
+        departamento:inputDepartamentoTarefa.value,
+        importancia:inputimportanciaTarefa.value,
+        data:inputDataTarefa.value,
+    }
 
-        //Declarando o objeto e já receebendo os dados dos inputs
-        const tarefaObj = {
-            nome: inputNomeTarefa.value,
-            descricao:inputDescricaoTarefa.value,
-            data:inputDataTarefa.value
-        }
-
-        //Inserindo os objetos na Lista
-        listaTarefasArray.push(tarefaObj);
-
-        // //Gerando uma lista de nomes de Tarefas com MAP
-        // let listaNomesTarefas = listaTarefasArray.map((chapeu,index) => {
-        //      if(index %2 == 0){
-        //         return chapeu.nome
-        //     }
-        // }).filter(chapeu =>( chapeu != undefined));
-
-        let listaNomesTarefas = listaTarefasArray.filter((chapeu,index) =>{
-            return index %2 == 0
-        });
-
-        console.log(listaNomesTarefas);
-
-
-
-
+    listaTarefasArray.push(tarefaObj);
 
     const listaTarefasUL = document.querySelector('#lista-tarefas');
+    let tr = document.createElement('tr');
+    let td1 = document.createElement('td');
+    let td2 = document.createElement('td');
+    let td3 = document.createElement('td');
+    let td4 = document.createElement('td');
+    let td5 = document.createElement('td');
+    let td6 = document.createElement('td');
+    let check = document.createElement('input');
+    check.type = 'checkbox';
+    check.id = 'checkbox1';
 
-    let li = document.createElement('li');
+    td1.textContent = tarefaObj.nome;
+    td2.textContent = tarefaObj.descricao;
+    td3.textContent = tarefaObj.departamento;
+    td4.textContent = tarefaObj.importancia;
+    td5.textContent = tarefaObj.data;
 
-    listaTarefasUL.appendChild(li);
 
-    let botaoExcluir = document.createElement('button');
+    listaTarefasUL.appendChild(tr);
+    tr.appendChild(td1);
+    tr.appendChild(td2);
+    tr.appendChild(td3);
+    tr.appendChild(td4);
+    tr.appendChild(td5);
+    tr.appendChild(td6); 
+    td6.appendChild(check);
 
-    botaoExcluir.textContent = " x ";
-
-    li.appendChild(botaoExcluir);
-
-    botaoExcluir.addEventListener("click",(evt)=>{
-        evt.preventDefault();
-        let conteudoDaLi = evt.target.parentNode.textContent.split(" x ");
-        //Remove o elemento pai do botão clicado do HTML
-        evt.target.parentNode.remove()
-    
-    });
-
+    console.log(check.value);
+    console.log(listaTarefasArray);
+   
 });
 
+botaoExcluirTarefa.addEventListener("click", (evt) => {
+    evt.preventDefault();
 
-//Declarando um array de Objetos de Alunos, com notas e faltas:
-let alunos = [
-    {"nome":"João","nota":8,"faltas":1},
-    {"nome":"Maria","nota":7,"faltas":3} ,
-    {"nome":"Pedro","nota":9,"faltas":4 },
-    {"nome":"Ana","nota":6,"faltas":5},
-    {"nome":"Carlos","nota":10,"faltas":0},
-    {"nome":"Fernando","nota":5,"faltas":3},
-    {"nome":"Júlio","nota":4,"faltas":0}
-    ];
-    
-    let notasDosAlunos = alunos.map(aluno => {
-        if(aluno.nota >= 6){
-            return aluno.nota;
+    // Percorra a lista de tarefas em ordem reversa para evitar problemas de índice ao remover elementos
+    for (let i = listaTarefasArray.length - 1; i >= 0; i--) {
+        const tarefa = listaTarefasArray[i];
+
+        // Verifique se a caixa de seleção correspondente está marcada
+        const checkbox = document.querySelector(`#checkbox1-${i}`);
+        
+        if (checkbox.checked) { // Verifique se o checkbox está marcado usando checkbox.checked
+            // Remova a linha da tabela e o objeto da lista de tarefas
+            listaTarefasArray.splice(i, 1);
+            const trToRemove = checkbox.closest('tr');
+            trToRemove.remove();
         }
-    }).filter(aluno => aluno != undefined);
-
-    console.log(notasDosAlunos);
-
-    let mediaFinal = 0;
-
-    notasDosAlunos.forEach((notas,index) =>{
-        notas =+ notas;
-        if((notasDosAlunos.length - 1) == index){
-            mediaFinal = (notas/alunos.length).toFixed(2) + ' pontos';
-            console.log(mediaFinal);
-        }
-    });
-
-   let novaMedia = notasDosAlunos.reduce((acumulado, atual)=> acumulado + atual);
-   console.log(novaMedia/notasDosAlunos.length);
-    
+    }
+});
 
