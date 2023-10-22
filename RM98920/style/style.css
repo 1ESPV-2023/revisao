@@ -1,8 +1,9 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
     background-color: #f0f0f0;
+    
 }
 
 h1 {
@@ -43,27 +44,6 @@ button {
     padding: 10px 20px;
     cursor: pointer;
 
-ti {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-tabl {
-    background-color: #fff;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-li button {
-    background-color: #f00;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
+.descricao {
+        white-space: normal; /* Isso faz com que o texto seja quebrado em várias linhas */
 }

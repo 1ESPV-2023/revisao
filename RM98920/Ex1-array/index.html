@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coded by PF0670</title>
+    <title>My</title>
     <script src="../js/script.js" defer></script>
     <link rel="stylesheet" href="../style/style.css">
 </head>
@@ -31,23 +31,20 @@
                     <label for="idImporTarefa">Importância:</label>
                     <input type="number" id="idImporTarefa" >
                 </div>
-                
-                <div>
-                    <label for="idDtTarefa">Data da Tarefa: </label>
-                    <input type="date" name="Dttarefa" id="idDtTarefa" placeholder="Data da tarefa">
-                </div>
                 <div>
                     <button type="submit" id="btnAddTarefa">Adicionar</button>
                     <button type="submit" id="btnExcluirTarefa">Excluir tarefas concluidas</button>
-
                 </div>
-            
             </fieldset>
         </form>
     </div>
 
     <div>
-        <table id="lista-tarefas" border="1">
+        <button id="btnOrganizar">Organizar por Importância</button>
+   </div>
+
+    <div>
+        <table id="lista-tarefas" border="1" style="width:100%; text-align: center;"  >
             <tr>
                 <th>Nome</th>
                 <th>Descrição</th>
@@ -57,6 +54,7 @@
                 <th>Feito</th> 
             </tr>
         </table>
+        
     </div>
 
 </body>
